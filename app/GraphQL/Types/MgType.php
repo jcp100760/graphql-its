@@ -30,12 +30,9 @@ class MgType extends GraphQLType
             'groupId' => [
                 'type' => Type::nonNull(Type::int()),
             ],
-            'proffessorId' => [
-                'type' => Type::nonNull(Type::int()),
-            ],
             'matter' => MatterField::class,
             'group' => GroupField::class,
-            'proffessor' => ProffessorField::class
+            //'proffessor' => ProffessorField::class
 
         ];
     }

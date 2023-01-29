@@ -97,6 +97,8 @@ return [
                App\GraphQL\Mutations\CreateGroup::class,
                App\GraphQL\Mutations\CreateGmp::class,
                App\GraphQL\Mutations\CreateAbsence::class,
+               App\GraphQL\Mutations\CreateUser::class,
+               App\GraphQL\Mutations\Login::class,
 
                //  Actualizacion de Registros
                App\GraphQL\Mutations\UpdateAbsence::class,
@@ -131,11 +133,12 @@ return [
                 App\GraphQL\Types\AbsenceType::class,
                 App\GraphQL\Types\GmpType::class,
                 App\GraphQL\Types\GmpType::class,
+                App\GraphQL\Types\UserType::class,
                
             ],
 
             // Laravel HTTP middleware
-            'middleware' => null,
+            'middleware' => ['auth:sanctum'],
 
             // Which HTTP methods to support; must be given in UPPERCASE!
             'method' => ['GET', 'POST'],

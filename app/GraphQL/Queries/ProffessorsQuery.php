@@ -6,6 +6,7 @@ use App\Models\Proffessor;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
+use App\GraphQL\Middleware\Authenticate;
 use Rebing\GraphQL\Support\Query;
 
 
@@ -13,6 +14,10 @@ class ProffessorsQuery extends Query
 {
     protected $attributes = [
         'name' => 'proffessors',
+    ];
+    
+    protected $middleware = [
+        Authenticate::class,
     ];
 
     public function type(): Type
