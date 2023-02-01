@@ -22,15 +22,16 @@ class BaseField extends Field
     //     $this->attributes = \array_merge($this->attributes, $settings);
     // }
 
-    public function __construct(Model $model, $field)
+    public function __construct(Type $type, Model $model, $field)
     {
+        $this->Type = $type;
         $this->Model = $model;
         $this->Field = $field;
     }
 
     public function type(): Type
     {
-        return GraphQL::type($this->Model);
+        return GraphQL::type($this->Type);
     }
 
     public function resolve($root, array $args): string
